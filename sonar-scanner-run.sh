@@ -69,11 +69,11 @@ if [ $SONAR_ANALYSIS_MODE == "preview" ]; then
     COMMAND="$COMMAND -Dsonar.gitlab.project_id=$SONAR_GITLAB_PROJECT_ID"
   fi
 
-  if [ ! -z ${CI_BUILD_REF+x} ]; then
+  if [ ! -z ${CI_COMMIT_SHA+x} ]; then
     COMMAND="$COMMAND -Dsonar.gitlab.commit_sha=$CI_COMMIT_SHA"
   fi
 
-  if [ ! -z ${CI_BUILD_REF_NAME+x} ]; then
+  if [ ! -z ${CI_COMMIT_REF_NAME+x} ]; then
     COMMAND="$COMMAND -Dsonar.gitlab.ref_name=$CI_COMMIT_REF_NAME"
   fi
 fi
